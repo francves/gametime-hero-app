@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Rsvp } from './interfaces/rsvp';
-import { CommunityEvent } from './interfaces/community-event';
+import { Rsvp } from '../interfaces/rsvp';
+import { CommunityEvent } from '../interfaces/community-event';
 
 
 @Injectable({

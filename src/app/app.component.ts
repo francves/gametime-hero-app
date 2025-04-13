@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RsvpAnalysisComponent } from './rsvp-analysis/rsvp-analysis.component';
+import { RsvpAnalysisComponent } from './components/rsvp-analysis/rsvp-analysis.component';
 @Component({
   selector: 'app-root',
   imports: [RsvpAnalysisComponent],

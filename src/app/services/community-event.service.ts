@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { CommunityEvent } from './interfaces/community-event';
+import { CommunityEvent } from '../interfaces/community-event';
 
 @Injectable({
   providedIn: 'root'

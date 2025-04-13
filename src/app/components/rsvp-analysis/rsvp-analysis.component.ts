@@ -1,8 +1,8 @@
 import { Component, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CommunityEvent } from '../interfaces/community-event';
-import { RsvpService } from '../rsvp.service';
-import { CommunityEventService } from '../community-event.service';
+import { CommunityEvent } from '../../interfaces/community-event';
+import { RsvpService } from '../../services/rsvp.service';
+import { CommunityEventService } from '../../services/community-event.service';
 import { combineLatest, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
