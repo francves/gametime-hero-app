@@ -28,10 +28,10 @@ export class RsvpService {
     if(!rsvps.length || !communityEvents.length) return null;
 
     //count the number of RSVPs for each community event
-    const RSVP_COUNTS = this.countRsvpsByCommunityEvent(rsvps);
+    const rsvpCounts = this.countRsvpsByCommunityEvent(rsvps);
 
     //find the community event with the most RSVPs
-    return this.findCommunityEventWithMaxRsvps(communityEvents, RSVP_COUNTS);
+    return this.findCommunityEventWithMaxRsvps(communityEvents, rsvpCounts);
   }
 
   /**
@@ -41,8 +41,8 @@ export class RsvpService {
    */
   private countRsvpsByCommunityEvent(rsvps: Rsvp[]): Map<string, number> {
     return rsvps.reduce((counts, rsvp) => {
-      const CURRENT_COUNT = counts.get(rsvp.eventId) || 0;
-      counts.set(rsvp.eventId, CURRENT_COUNT + 1);
+      const currentCount = counts.get(rsvp.eventId) || 0;
+      counts.set(rsvp.eventId, currentCount + 1);
       return counts;
     }, new Map<string, number>());
   }
@@ -50,15 +50,15 @@ export class RsvpService {
   /**
    * Find the community event with the most RSVPs
    * @param communityEvents List of community events
-   * @param RSVP_COUNTS Map of community event IDs to the number of RSVPs
+   * @param rsvpCounts Map of community event IDs to the number of RSVPs
    * @returns The community event with the most RSVPs or null if there is no data
    */
-  private findCommunityEventWithMaxRsvps(communityEvents: CommunityEvent[], RSVP_COUNTS: Map<string, number>): CommunityEvent | null {
+  private findCommunityEventWithMaxRsvps(communityEvents: CommunityEvent[], rsvpCounts: Map<string, number>): CommunityEvent | null {
     let maxRsvps = 0;
     let eventWithMostRsvps: CommunityEvent | null = null;
 
     communityEvents.forEach(event => {
-      const rsvpCount = RSVP_COUNTS.get(event.id) || 0;
+      const rsvpCount = rsvpCounts.get(event.id) || 0;
       if (rsvpCount > maxRsvps) {
         maxRsvps = rsvpCount;
         eventWithMostRsvps = event;

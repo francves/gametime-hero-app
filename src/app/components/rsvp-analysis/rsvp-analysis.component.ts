@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CommunityEvent } from '../../interfaces/community-event';
 import { RsvpService } from '../../services/rsvp.service';
@@ -11,7 +11,8 @@ import { takeUntil } from 'rxjs/operators';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './rsvp-analysis.component.html',
-  styleUrl: './rsvp-analysis.component.scss'
+  styleUrl: './rsvp-analysis.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RsvpAnalysisComponent implements OnDestroy {
     communityEventWithMostRsvps: CommunityEvent | null = null;
